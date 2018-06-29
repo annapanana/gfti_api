@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Specify node modules, and the public folder.
 app.use(express.static(path.join(__dirname, 'public')));
 
-const goods = require('./routes/goods');
+const cards = require('./routes/cards');
 
 // For CORS issues
 app.use((req, res, next) => {
@@ -34,8 +34,7 @@ app.use((req, res, next) => {
   }
 });
 
-app.use('/api/goods', goods);
-
+app.use('/api/cards', cards);
 // Wildcard Route, Sends the Index back incase of someone being where they shouldn't.
 app.use('*', function (req, res, next) {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })
