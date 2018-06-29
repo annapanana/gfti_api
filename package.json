@@ -1,0 +1,20 @@
+{
+  "name": "gfti",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "dotenv": "^4.0.0",
+    "express": "~4.15.2",
+    "knex": "^0.14.6",
+    "nodemon": "^1.17.5",
+    "pg": "^6.4.0"
+  },
+  "devDependencies": {
+    "imports-loader": "^0.7.1"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "proxy": "http://localhost:8000"
+}
