@@ -8,7 +8,8 @@
     "express": "~4.15.2",
     "knex": "^0.14.6",
     "nodemon": "^1.17.5",
-    "pg": "^6.4.0"
+    "pg": "^6.4.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "imports-loader": "^0.7.1"
