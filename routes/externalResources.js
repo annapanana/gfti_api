@@ -46,7 +46,7 @@ function validateAddress(body) {
 function getUnsplashPhotos(body) {
   const search = body['params[search_text]'];
 
-  return `https://api.unsplash.com/search/photos/?query=${search}&client_id=${process.env.UNSPLASH_KEY}`
+  return `https://api.unsplash.com/search/photos/?query=${search}&per_page=20&client_id=${process.env.UNSPLASH_KEY}`
 }
 
 
