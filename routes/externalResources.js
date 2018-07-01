@@ -20,7 +20,8 @@ router.post('/', (req, res, next) => {
 function getResourceMethod(resource) {
   const resourceMethods = [
     {key: "rep-by-zip", method:getReps},
-    {key: "validate-address", method:validateAddress}
+    {key: "validate-address", method:validateAddress},
+    {key: "unsplash-photos", method:getUnsplashPhotos}
   ]
   return resourceMethods.find(elem => {
     return elem.key === resource
@@ -40,6 +41,12 @@ function validateAddress(body) {
         zip = body['params[address][zip]'];
 
   return `https://us-street.api.smartystreets.com/street-address?auth-id=${process.env.SMARTY_ID}&auth-token=${process.env.SMARTY_TOKEN}&candidates=10&street=${address1}&street2=${address2}&city=${city}&state=${state}&zipcode=${zip}`;
+}
+
+function getUnsplashPhotos(body) {
+  const search = body['params[search_text]'];
+
+  return `https://api.unsplash.com/search/photos/?query=${search}&client_id=${process.env.UNSPLASH_KEY}`
 }
 
 
