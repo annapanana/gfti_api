@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const server = require("http").Server(app);
 
 app.use(express.static(path.join('public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Specify node modules, and the public folder.

@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-  const {card} = req.body;
+  
   knex('cards')
     .insert(plant)
     .then(results => {
