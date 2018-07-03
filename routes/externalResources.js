@@ -5,7 +5,6 @@ require('dotenv').load();
 const request = require('request');
 
 router.post('/', (req, res, next) => {
-  console.log(req.body);
   const {resource} = req.body,
         url = getResourceMethod(resource)(req.body);
   request(url, (error, response, body) => {
@@ -21,8 +20,7 @@ function getResourceMethod(resource) {
   const resourceMethods = [
     {key: "rep-by-zip", method:getReps},
     {key: "validate-address", method:validateAddress},
-    {key: "unsplash-photos", method:getUnsplashPhotos},
-    {key: "lob", method:sendPostcardToLob}
+    {key: "unsplash-photos", method:getUnsplashPhotos}
   ]
   return resourceMethods.find(elem => {
     return elem.key === resource
@@ -50,11 +48,5 @@ function getUnsplashPhotos(body) {
 
   return `https://api.unsplash.com/search/photos/?query=${search}&per_page=20&client_id=${process.env.UNSPLASH_KEY}`
 }
-
-function sendPostcardToLob(body) {
-  const {address, bg_img, pc_back} = body.data;
-  console.log("SEND TO LOB API");
-}
-
 
 module.exports = router;
