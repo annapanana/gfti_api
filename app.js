@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const cards = require('./routes/cards');
+const addresses = require('./routes/addresses');
 const externalResources = require('./routes/externalResources');
 
 // For CORS issues
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/cards', cards);
+app.use('/api/addresses', addresses);
 app.use('/api/external-resources', externalResources);
 // Wildcard Route, Sends the Index back incase of someone being where they shouldn't.
 app.use('*', function (req, res, next) {

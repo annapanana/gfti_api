@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
-const Lob = require('lob')('test_97f0caa8c52f230f7bef2daef8b58e70f81');
+const Lob = require('lob')(process.env.LOB_KEY);
 
 router.get('/', (req, res, next) => {
   knex('cards')
