@@ -5,7 +5,7 @@ require('dotenv').load();
 
 router.post('/', (req, res, next) => {
   const {name, address1, address2, city, state, zip} = req.body;
-  // TODO activate in production
+  // TODO activate in production and format response to hardcoded response below
   // Lob.usVerifications.verify({
   //   primary_line: address1,
   //   secondary_line: address2,
@@ -16,14 +16,22 @@ router.post('/', (req, res, next) => {
   //   if (error) {
   //     return res.send(err)
   //   } else {
+  //     console.log(results);
   //     res.status(200).send(results)
   //   }
   // });
   res.status(200).send({
     name: "Anna Lotko",
-    primary_line: "1214 AUTUMN CT",
-    secondary_line: "",
-    last_line: "LONGMONT CO 80504-3912"
+    // primary_number, street_name, street_suffex
+    address_line1: "1214 AUTUMN CT",
+    // ???
+    address_line2: "",
+    // city
+    address_city: "Longmont",
+    // state
+    address_state: "CO",
+    // zip_code
+    address_zip: "80504s"
   })
 })
 

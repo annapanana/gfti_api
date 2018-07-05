@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
+require('dotenv').load();
 const Lob = require('lob')(process.env.LOB_KEY);
 
 router.get('/', (req, res, next) => {
@@ -26,11 +27,11 @@ router.post('/', (req, res, next) => {
     merge_variables: {
       name: address.name
     }
-  }, function (error, results) {
+  }, function (error, result) {
     if (error) {
-      return res.send(err)
+      return res.send(error)
     } else {
-      res.status(200).send(results)
+      res.status(200).send(result)
     }
   });
   // knex('cards')
